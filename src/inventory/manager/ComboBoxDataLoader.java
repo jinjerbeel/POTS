@@ -17,15 +17,15 @@ import javax.swing.JComboBox;
 
 public class ComboBoxDataLoader {
     
-    private String itemPath = "C:\\Users\\User\\OneDrive\\Documents\\APU\\Java Y2\\NetBeansProjects\\Inventory Manager\\src\\inventory\\manager\\Inventory.txt";
-    private String supplierPath = "C:\\Users\\User\\OneDrive\\Documents\\APU\\Java Y2\\NetBeansProjects\\Inventory Manager\\src\\inventory\\manager\\Supplier.txt";
+    private String itemPath = "./Inventory.txt";
+    private String supplierPath = "./Supplier.txt";
     private File itemFile = new File(itemPath);
     private File supplierFile = new File(supplierPath);
     
-    private String suppliedItemsPath = "C:\\Users\\User\\OneDrive\\Documents\\APU\\Java Y2\\NetBeansProjects\\Inventory Manager\\src\\inventory\\manager\\SuppliedItems.txt";
+    private String suppliedItemsPath = "./SuppliedItems.txt";
     private File suppliedItemsFile = new File(suppliedItemsPath);
     
-    private String updateStockPath = "C:\\Users\\User\\OneDrive\\Documents\\APU\\Java Y2\\NetBeansProjects\\Inventory Manager\\src\\inventory\\manager\\AddStock.txt";
+    private String updateStockPath = "./AddStock.txt";
     private File updateStockFile = new File(updateStockPath);
     // Constructor
     public ComboBoxDataLoader() {}
