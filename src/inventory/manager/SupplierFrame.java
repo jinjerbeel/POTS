@@ -16,8 +16,8 @@ public class SupplierFrame extends javax.swing.JFrame {
 
     private ArrayList<Item> itemList = new ArrayList<>();
     private ArrayList<Supplier> supplierList = new ArrayList<>();
-    private static FileManager<Item> itemManager = new FileManager<>("C:\\Users\\User\\OneDrive\\Documents\\APU\\Java Y2\\NetBeansProjects\\Inventory Manager\\src\\inventory\\manager\\Inventory.txt");
-    private static FileManager<Supplier> supplierManager = new FileManager<>("C:\\Users\\User\\OneDrive\\Documents\\APU\\Java Y2\\NetBeansProjects\\Inventory Manager\\src\\inventory\\manager\\Supplier.txt");
+    private static FileManager<Item> itemManager = new FileManager<>("./Inventory.txt");
+    private static FileManager<Supplier> supplierManager = new FileManager<>("./Supplier.txt");
 
     
     public SupplierFrame() {
