@@ -13,8 +13,8 @@ public class SuppliedItemsFrame extends javax.swing.JFrame {
 
     private ArrayList<Supplier> supplierList = new ArrayList<>();
     private ArrayList <SuppliedItems> suppliedItemsList = new ArrayList<>();
-    private static FileManager<Supplier> supplierManager = new FileManager<>("C:\\Users\\User\\OneDrive\\Documents\\APU\\Java Y2\\NetBeansProjects\\Inventory Manager\\src\\inventory\\manager\\Supplier.txt");
-    private static FileManager<SuppliedItems> suppliedItemsManager = new FileManager<>("C:\\Users\\User\\OneDrive\\Documents\\APU\\Java Y2\\NetBeansProjects\\Inventory Manager\\src\\inventory\\manager\\SuppliedItems.txt");
+    private static FileManager<Supplier> supplierManager = new FileManager<>("./Supplier.txt");
+    private static FileManager<SuppliedItems> suppliedItemsManager = new FileManager<>("./SuppliedItems.txt");
     
     public SuppliedItemsFrame() {
 

@@ -14,8 +14,8 @@ public class UpdateStock {
     private int quantity; 
     private static ArrayList<Item> itemList = new ArrayList<>();
     private static ArrayList<UpdateStock> stockList = new ArrayList<>();
-    private static FileManager<Item> itemManager = new FileManager<>("C:\\Users\\User\\OneDrive\\Documents\\APU\\Java Y2\\NetBeansProjects\\Inventory Manager\\src\\inventory\\manager\\Inventory.txt");
-    private static FileManager<UpdateStock> stockManager = new FileManager<>("C:\\Users\\User\\OneDrive\\Documents\\APU\\Java Y2\\NetBeansProjects\\Inventory Manager\\src\\inventory\\manager\\AddStock.txt");
+    private static FileManager<Item> itemManager = new FileManager<>("./Inventory.txt");
+    private static FileManager<UpdateStock> stockManager = new FileManager<>("./AddStock.txt");
 
     public UpdateStock(){}
 
