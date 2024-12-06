@@ -1,0 +1,11 @@
+inventory.manager.UpdateStockFrame$7
+inventory.manager.UpdateStockFrame$8
+inventory.manager.UpdateStockFrame$5
+inventory.manager.UpdateStockFrame$6
+inventory.manager.UpdateStockFrame$3
+inventory.manager.UpdateStockFrame$4
+inventory.manager.UpdateStockFrame$1
+inventory.manager.UpdateStockFrame$2
+inventory.manager.UpdateStockFrame$10
+inventory.manager.UpdateStockFrame
+inventory.manager.UpdateStockFrame$9
