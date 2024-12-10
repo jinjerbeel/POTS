@@ -30,13 +30,6 @@ public class ComboBoxDataLoader {
     // Constructor
     public ComboBoxDataLoader() {}
     
-    public ComboBoxDataLoader(String itemFilePath, String supplierFilePath) {
-        this.itemPath = itemFilePath;
-        this.supplierPath = supplierFilePath;
-        this.itemFile = new File(itemFilePath);
-        this.supplierFile = new File(supplierFilePath);
-    }
-    
     // Method to return unique calues from a specific column in file
     private List<String> getUniqueValuesFromFile(File file,int columnIndex) {
         // Set to store unique values (no duplicates)

@@ -10,7 +10,7 @@ import java.util.*;
  */
 public class UpdateStock {
     private String purchaseOrder;
-    private String itemCode;
+    private Item item;
     private int quantity; 
     private static ArrayList<UpdateStock> stockList = new ArrayList<>();
     private static FileManager<Item> itemManager = new FileManager<>("./Inventory.txt");
@@ -18,9 +18,9 @@ public class UpdateStock {
 
     public UpdateStock(){}
 
-    public UpdateStock(String purchaseOrder, String itemCode, int quantity) {
+    public UpdateStock(String purchaseOrder, Item item, int quantity) {
         this.purchaseOrder = purchaseOrder;
-        this.itemCode = itemCode;
+        this.item = item;
         this.quantity = quantity;
     }
 
@@ -28,8 +28,8 @@ public class UpdateStock {
         return purchaseOrder;
     }
 
-    public String getItemCode() {
-        return itemCode;
+    public Item getItem() {
+        return item;
     }
 
     public int getQuantity() {
@@ -40,8 +40,8 @@ public class UpdateStock {
         this.purchaseOrder = purchaseOrder;
     }
 
-    public void setItemCode(String itemCode) {
-        this.itemCode = itemCode;
+    public void setItem(Item item) {
+        this.item = item;
     }
 
     public void setQuantity(int quantity) {
@@ -81,7 +81,7 @@ public class UpdateStock {
     }
     @Override
     public String toString() {
-        return purchaseOrder + "," + itemCode + "," + quantity;
+        return purchaseOrder + "," + item.getItemCode() + "," + quantity;
     }
 }
 
