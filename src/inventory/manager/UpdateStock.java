@@ -49,9 +49,6 @@ public class UpdateStock {
     }
 
     public static boolean updateStockQuantity(ArrayList<Item> itemList,String itemCode, int quantity) {
-        itemList.clear();
-        itemManager.read(itemList,Item.class);
-
         // Find the specific item in the list
         Item selectedItem = Item.findItemByCode(itemList, itemCode);
         int existingQuantity = selectedItem.getQuantity();
@@ -77,7 +74,7 @@ public class UpdateStock {
         UpdateStock completeOrder = findPurchaseOrder(stocks, purchaseOrder);
         stocks.remove(completeOrder);
 
-        stockManager.save(stockList);
+        stockManager.save(stocks);
 
         System.out.println("Stock has been updated");
         return true;

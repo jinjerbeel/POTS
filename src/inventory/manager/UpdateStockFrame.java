@@ -405,7 +405,7 @@ public class UpdateStockFrame extends javax.swing.JFrame {
         }
  
         UpdateStock.updateStockQuantity(itemList,itemCode,quantity);
-        UpdateStock.deleteOrder(stockList, purchaseOrder);
+        UpdateStock.deleteOrder(stockList,purchaseOrder);
 
         loadStockTable();
         JOptionPane.showMessageDialog(this, "Stock Levels updated successfully!");
