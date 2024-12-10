@@ -1345,7 +1345,7 @@ public class ItemsFrame extends javax.swing.JFrame {
         if (selectedItem != null) {
             // Autofill the text fields with the supplier data
             txtModifyItemName.setText(selectedItem.getItemName());
-            txtModifyCategory.setText(selectedItem.getDescription());
+            txtModifyCategory.setText(selectedItem.getCategory());
             txtModifyQuantity.setText(String.valueOf(selectedItem.getQuantity()));
             txtModifySellingPrice.setText(String.valueOf(selectedItem.getSellingPrice()));
             ArrayList<String> suppliedItems = selectedItem.getSupplierCodes();
@@ -1403,7 +1403,7 @@ public class ItemsFrame extends javax.swing.JFrame {
         if (selectedItem != null) {
             // Autofill the text fields with the supplier data
             txtDeleteItemName.setText(selectedItem.getItemName());
-            txtDeleteCategory.setText(selectedItem.getDescription());
+            txtDeleteCategory.setText(selectedItem.getCategory());
             txtDeleteQuantity.setText(String.valueOf(selectedItem.getQuantity()));
             txtDeleteSellingPrice.setText(String.valueOf(selectedItem.getSellingPrice()));
             
@@ -1542,7 +1542,7 @@ public class ItemsFrame extends javax.swing.JFrame {
             model.addRow(new Object[]{
                 item.getItemCode(), 
                 item.getItemName(), 
-                item.getDescription(), 
+                item.getCategory(), 
                 item.getQuantity(), 
                 item.getSellingPrice(), 
                 supplierCodesString,

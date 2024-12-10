@@ -18,7 +18,7 @@ import java.util.Arrays;
 public class Item {
     private String itemCode;
     private String itemName;
-    private String description;
+    private String category;
     private int quantity;   
     private double sellingPrice;
     private ArrayList<String> supplierCodes;
@@ -30,10 +30,10 @@ public class Item {
     private static String itemPath = "./Inventory.txt";
 
     public Item(){};
-    public Item(String itemCode, String itemName, String description, int quantity, double sellingPrice, ArrayList<String> supplierCodes) {
+    public Item(String itemCode, String itemName, String category, int quantity, double sellingPrice, ArrayList<String> supplierCodes) {
         this.itemCode = itemCode;
         this.itemName = itemName;
-        this.description = description;
+        this.category = category;
         this.quantity= quantity;
         this.sellingPrice = sellingPrice;
         this.supplierCodes = supplierCodes;
@@ -50,8 +50,8 @@ public class Item {
         return itemName;
     }
 
-    public String getDescription() {
-        return description;
+    public String getCategory() {
+        return category;
     }
 
     public ArrayList<String> getSupplierCodes() {
@@ -74,8 +74,8 @@ public class Item {
         this.itemName = itemName;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public void setQuantity(int quantity) {
@@ -99,7 +99,7 @@ public class Item {
         String sellingPriceStr = String.valueOf(sellingPrice);
 
         // Return the CSV representation of the Item object
-        return itemCode + "," + itemName + "," + description + "," + 
+        return itemCode + "," + itemName + "," + category + "," + 
                 quantityStr + "," + sellingPriceStr + "," + supplierCodesStr;
     }
 
@@ -147,7 +147,7 @@ public class Item {
     }
  
     // Modify the details of an existing item
-    public static boolean modifyItem(ArrayList<Item> items, ArrayList<Supplier> suppliers, String itemCode, String newName, String newDescription, 
+    public static boolean modifyItem(ArrayList<Item> items, ArrayList<Supplier> suppliers, String itemCode, String newName, String newCategory, 
             int newQuantity, double newSellingPrice, ArrayList<String> newSupplierCodes) {
         if(newSupplierCodes != null && newSupplierCodes.stream().noneMatch(String::isBlank)){
             for (String newSupplierCode : newSupplierCodes) {
@@ -186,7 +186,7 @@ public class Item {
             }
         }
         selectedItem.setItemName(newName);
-        selectedItem.setDescription(newDescription);
+        selectedItem.setCategory(newCategory);
         selectedItem.setQuantity(newQuantity);
         
         selectedItem.setSellingPrice(newSellingPrice);
