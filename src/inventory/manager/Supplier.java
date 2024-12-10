@@ -14,8 +14,7 @@ public class Supplier {
     private String supplierName;
     private String hqLocation;
     private  ArrayList<String> suppliedItemCodes = new ArrayList<>();
-    private  ArrayList<Supplier> supplierList = new ArrayList<>();
-    private  ArrayList<Item> itemList = new ArrayList<>();
+
     private static FileManager<Item> itemManager = new FileManager<>("./Inventory.txt");
     private static FileManager<Supplier> supplierManager = new FileManager<>("./Supplier.txt");
     private static String supplierPath = "./Supplier.txt";

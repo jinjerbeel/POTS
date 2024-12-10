@@ -22,9 +22,7 @@ public class Item {
     private int quantity;   
     private double sellingPrice;
     private ArrayList<String> supplierCodes;
-    
-    private ArrayList<Item> itemList = new ArrayList<>();
-    private ArrayList<Supplier> supplierList = new ArrayList<>();
+
     private static FileManager<Item> itemManager = new FileManager<>("./Inventory.txt");
     private static FileManager<Supplier> supplierManager = new FileManager<>("./Supplier.txt");
     private static String itemPath = "./Inventory.txt";
