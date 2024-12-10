@@ -10,37 +10,43 @@ import java.util.*;
  * @author User
  */
 public class SuppliedItems {
-    private Supplier supplier; // Aggregation
-    private Item item;   
+    private String supplierID;
+    private String itemCode;
     private Double cost; // Nullable to represent missing cost values
     private static ArrayList<Supplier> supplierList = new ArrayList<>();
-    private static ArrayList<Item> itemList = new ArrayList<>();
     private static ArrayList <SuppliedItems> suppliedItemsList = new ArrayList<>();
-    private static FileManager<Supplier> supplierManager = new FileManager<>("./Supplier.txt");
-    private static FileManager<SuppliedItems> suppliedItemsManager = new FileManager<>("./SuppliedItems.txt");
-    private static FileManager<Item> itemManager = new FileManager<>("./Inventory.txt");
-    private static String suppliedItemsPath = "./SuppliedItems.txt";
+    private static FileManager<Supplier> supplierManager = new FileManager<>("C:\\Users\\User\\OneDrive\\Documents\\APU\\Java Y2\\NetBeansProjects\\Inventory Manager\\src\\inventory\\manager\\Supplier.txt");
+    private static FileManager<SuppliedItems> suppliedItemsManager = new FileManager<>("C:\\Users\\User\\OneDrive\\Documents\\APU\\Java Y2\\NetBeansProjects\\Inventory Manager\\src\\inventory\\manager\\SuppliedItems.txt");
+    private static String suppliedItemsPath = "C:\\Users\\User\\OneDrive\\Documents\\APU\\Java Y2\\NetBeansProjects\\Inventory Manager\\src\\inventory\\manager\\SuppliedItems.txt";
 
 
     public SuppliedItems(){}
 
-    public SuppliedItems(Supplier supplier, Item item,Double cost) {
-        this.supplier = supplier; // Aggregation: Supplier passed in and managed independently
-        this.item = item;
+    public SuppliedItems(String supplierID, String itemCode, Double cost) {
+        this.supplierID = supplierID;
+        this.itemCode = itemCode;
         this.cost = cost;
     }
 
     // Getters and Setters
-    public Supplier getSupplier() {
-        return supplier;
+    public String getSupplierID() {
+        return supplierID;
     }
-
-    public Item getItem() {
-        return item;
+    
+    public String getItemCode() {
+        return itemCode;
     }
-
+        
     public Double getCost() {
         return cost;
+    }
+
+    public void setSupplierID(String supplierID) {
+        this.supplierID = supplierID;
+    }
+
+    public void setItemCode(String itemCode) {
+        this.itemCode = itemCode;
     }
 
     public void setCost(Double cost) {
@@ -49,30 +55,24 @@ public class SuppliedItems {
 
     @Override
     public String toString() {
-        return supplier.getSupplierCode() + "," + item.getItemCode() + "," + (cost != null ? cost : "");
+        return supplierID + "," + itemCode + "," + (cost != null ? cost : "");
     }
-
+    
     public static void rebuildSuppliedItems() {
         // Read suppliers from Supplier.txt
         supplierList.clear();
         supplierManager.read(supplierList, Supplier.class);
-        
-        itemList.clear();
-        itemManager.read(itemList, Item.class);
+
         // Read existing SupplierItems.txt for cost data
         suppliedItemsList.clear();
         suppliedItemsManager.read(suppliedItemsList, SuppliedItems.class);
-        
-        Map<String, Item> itemMap = new HashMap<>();
-        for(Item item: itemList){
-            itemMap.put(item.getItemCode(), item);
-        }
+
 
         // Create a map for quick cost lookup by (supplierID + itemCode)
         Map<String, Double> costMap = new HashMap<>();
-        for (SuppliedItems suppliedItem : suppliedItemsList) {
-            String key = suppliedItem.getSupplier().getSupplierCode() + ":" + suppliedItem.getItem().getItemCode();
-            costMap.put(key, suppliedItem.getCost());
+        for (SuppliedItems item : suppliedItemsList) {
+            String key = item.getSupplierID() + ":" + item.getItemCode();
+            costMap.put(key, item.getCost());
         }
 
         // Rebuild the supplied items list
@@ -81,12 +81,10 @@ public class SuppliedItems {
         for (Supplier supplier : supplierList) {
             if (supplier.getSuppliedItemCodes() != null) {
                 for (String itemCode : supplier.getSuppliedItemCodes()) {
-                    Item item = itemMap.get(itemCode);
-                    if(item!= null){
-                        String key = supplier.getSupplierCode() + ":" + itemCode;
-                        Double cost = costMap.getOrDefault(key, null);
-                        newSuppliedItems.add(new SuppliedItems(supplier,item , cost));
-                    }
+                    String key = supplier.getSupplierCode() + ":" + itemCode;
+                    Double cost = costMap.getOrDefault(key, null);
+                    newSuppliedItems.add(new SuppliedItems(supplier.getSupplierCode(), itemCode, cost));
+
                     
                  }
             }
@@ -95,46 +93,32 @@ public class SuppliedItems {
         suppliedItemsManager.save(newSuppliedItems);
     }
 
-    public static boolean updateCost(ArrayList<SuppliedItems> suppliedItemsList, String supplierID, String itemID, Double newCost) {
-        SuppliedItems selectedItem = findSuppliedItem(suppliedItemsList, supplierID, itemID);
-        if (selectedItem == null) {
+    public static boolean updateCost(ArrayList<SuppliedItems> suppliedItems, String supplierID, String itemCode, Double newCost) {
+        SuppliedItems selectedItem = SuppliedItems.findSuppliedItem(suppliedItems, supplierID, itemCode);
+        if (selectedItem == null){
             return false;
         }
-
-        selectedItem.setCost(newCost != null ? newCost : 0.0);
-
-        // Save the updated list to the file
-        suppliedItemsManager.save(suppliedItemsList);
-
+        
+        if (newCost == null){
+            newCost = 0.0;
+        }
+        selectedItem.setCost(newCost);
+        
+        suppliedItemsManager.save(suppliedItems);
+        
         return true;
     }
-
-    public static SuppliedItems findSuppliedItem(ArrayList<SuppliedItems> suppliedItemsList, 
-            String supplierID, String itemID) {
-        
-        Map<String, Item> itemMap = new HashMap<>();
-        for(Item item: itemList){
-            itemMap.put(item.getItemCode(), item);
+    public static SuppliedItems findSuppliedItem(ArrayList<SuppliedItems> suppliedItems, String supplierID, String itemCode) {
+        // Read the file and populate the supplierItemsList
+    // Search for the matching supplierID and itemCode
+        for (SuppliedItems item : suppliedItems) {
+            if (item.getSupplierID().equals(supplierID) && item.getItemCode().equals(itemCode)) {
+                return item; // Return the matching SupplierItems object
+            }
         }
-    
-        for (Supplier supplier : supplierList) {
-            if (supplier.getSuppliedItemCodes() != null) {
-                for (String itemCode : supplier.getSuppliedItemCodes()) {
-                    Item item = itemMap.get(itemCode);
-                    if(item!= null && item.getItemCode().equals(itemID) && supplier.getSupplierCode().equals(supplierID)){
-                       for (SuppliedItems suppliedItem : suppliedItemsList) {
-                            if (suppliedItem.getSupplier().equals(supplier) && 
-                                suppliedItem.getItem().equals(item)) {
-                                return suppliedItem; // Return the matched SuppliedItems object
-                            }
-                       }
-                    }
-                }
-            }    
-        }
-        return null; // Return null if no match is found
+        return null;
     }
-
+    
     public static List<String> filterSuppliedItemsTable(
             String supplierIDInput,
             String itemCodeInput, 

@@ -733,8 +733,8 @@ public class SuppliedItemsFrame extends javax.swing.JFrame {
 
         for (SuppliedItems item : suppliedItemsList) {
             model.addRow(new Object[]{
-                item.getSupplier().getSupplierCode(), 
-                item.getItem().getItemCode(), 
+                item.getSupplierID(), 
+                item.getItemCode(), 
                 item.getCost()
             });
         }
