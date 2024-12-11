@@ -375,7 +375,7 @@ public class UpdateStockFrame extends javax.swing.JFrame {
         UpdateStock stock = UpdateStock.findPurchaseOrder(stockList, selectedOrder);
         if (stock != null) {
             // Autofill the text fields with the supplier data
-            txtUpdateStockItemCode.setText(stock.getItem().getItemCode());
+            txtUpdateStockItemCode.setText(stock.getItemCode());
             txtUpdateStockQuantity.setText(String.valueOf(stock.getQuantity()));
         }
         
@@ -432,7 +432,7 @@ public class UpdateStockFrame extends javax.swing.JFrame {
         for (UpdateStock order : stockList) {
             model.addRow(new Object[]{
                 order.getPurchaseOrder(), 
-                order.getItem().getItemCode(), 
+                order.getItemCode(), 
                 order.getQuantity()
             });
         }

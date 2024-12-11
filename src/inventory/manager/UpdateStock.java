@@ -10,17 +10,18 @@ import java.util.*;
  */
 public class UpdateStock {
     private String purchaseOrder;
-    private Item item;
+    private String itemCode;
     private int quantity; 
+    private static ArrayList<Item> itemList = new ArrayList<>();
     private static ArrayList<UpdateStock> stockList = new ArrayList<>();
-    private static FileManager<Item> itemManager = new FileManager<>("./Inventory.txt");
-    private static FileManager<UpdateStock> stockManager = new FileManager<>("./AddStock.txt");
+    private static FileManager<Item> itemManager = new FileManager<>("C:\\Users\\User\\OneDrive\\Documents\\APU\\Java Y2\\NetBeansProjects\\Inventory Manager\\src\\inventory\\manager\\Inventory.txt");
+    private static FileManager<UpdateStock> stockManager = new FileManager<>("C:\\Users\\User\\OneDrive\\Documents\\APU\\Java Y2\\NetBeansProjects\\Inventory Manager\\src\\inventory\\manager\\AddStock.txt");
 
     public UpdateStock(){}
 
-    public UpdateStock(String purchaseOrder, Item item, int quantity) {
+    public UpdateStock(String purchaseOrder, String itemCode, int quantity) {
         this.purchaseOrder = purchaseOrder;
-        this.item = item;
+        this.itemCode = itemCode;
         this.quantity = quantity;
     }
 
@@ -28,8 +29,8 @@ public class UpdateStock {
         return purchaseOrder;
     }
 
-    public Item getItem() {
-        return item;
+    public String getItemCode() {
+        return itemCode;
     }
 
     public int getQuantity() {
@@ -40,8 +41,8 @@ public class UpdateStock {
         this.purchaseOrder = purchaseOrder;
     }
 
-    public void setItem(Item item) {
-        this.item = item;
+    public void setItemCode(String itemCode) {
+        this.itemCode = itemCode;
     }
 
     public void setQuantity(int quantity) {
@@ -49,7 +50,11 @@ public class UpdateStock {
     }
 
     public static boolean updateStockQuantity(ArrayList<Item> itemList,String itemCode, int quantity) {
+        itemList.clear();
+        itemManager.read(itemList,Item.class);
+
         // Find the specific item in the list
+        System.out.println(itemList);
         Item selectedItem = Item.findItemByCode(itemList, itemCode);
         int existingQuantity = selectedItem.getQuantity();
         int newQuantity = quantity + existingQuantity;
@@ -74,14 +79,14 @@ public class UpdateStock {
         UpdateStock completeOrder = findPurchaseOrder(stocks, purchaseOrder);
         stocks.remove(completeOrder);
 
-        stockManager.save(stocks);
+        stockManager.save(stockList);
 
         System.out.println("Stock has been updated");
         return true;
     }
     @Override
     public String toString() {
-        return purchaseOrder + "," + item.getItemCode() + "," + quantity;
+        return purchaseOrder + "," + itemCode + "," + quantity;
     }
 }
 
