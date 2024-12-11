@@ -4,7 +4,7 @@
  */
 package InventoryManager;
 
-import assignmentdecsix.Config;
+import Main.Config;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;

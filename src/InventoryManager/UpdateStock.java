@@ -4,7 +4,7 @@
  */
 package InventoryManager;
 
-import assignmentdecsix.Config;
+import Main.Config;
 import java.util.*;
 /**
  *

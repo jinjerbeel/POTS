@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package InventoryManager;
-import assignmentdecsix.Config;
+import Main.Config;
 
 import java.io.File;
 import java.io.IOException;
