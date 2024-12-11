@@ -11,15 +11,20 @@ package Main;
 
 public class Config {
     // Base directory for all data files
-    private static final String DATA_DIR = "./src/data";
+    private static final String DATA_DIR = "./src/Data";
     
     // File names as constants
+    private static final String USERS_FILE = "Users.txt";
     private static final String INVENTORY_FILE = "Inventory.txt";
     private static final String SUPPLIER_FILE = "Supplier.txt";
     private static final String SUPPLIED_ITEMS_FILE = "SuppliedItems.txt";
     private static final String ADD_STOCK_FILE = "AddStock.txt";
     
     // getter
+    public static String getUserPath() {
+        return DATA_DIR + "/" + USERS_FILE;
+    }
+    
     public static String getInventoryPath() {
         return DATA_DIR + "/" + INVENTORY_FILE;
     }
