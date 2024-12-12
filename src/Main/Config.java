@@ -19,6 +19,7 @@ public class Config {
     private static final String SUPPLIER_FILE = "Supplier.txt";
     private static final String SUPPLIED_ITEMS_FILE = "SuppliedItems.txt";
     private static final String ADD_STOCK_FILE = "AddStock.txt";
+    private static final String PURCHASE_ORDER_FILE = "PurchaseOrder.txt";
     
     // getter
     public static String getUserPath() {
@@ -39,5 +40,9 @@ public class Config {
     
     public static String getAddStockPath() {
         return DATA_DIR + "/" + ADD_STOCK_FILE;
+    }
+    
+    public static String getPurchaseOrderPath() {
+        return DATA_DIR + "/" + PURCHASE_ORDER_FILE;
     }
 }
