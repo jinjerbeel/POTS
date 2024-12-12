@@ -1,5 +1,6 @@
 package Sales_Manager;
 
+import Main.Config;
 import javax.swing.table.DefaultTableModel;
 import java.io.*;
 import javax.swing.JTable;
@@ -28,7 +29,7 @@ public class ReorderLevel {
 
         Map<String, Integer> salesData = loadSalesData(); // Load sales data
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\jessw\\OneDrive\\Desktop\\Wynns\\APU\\Level 2\\Level 2 Sem 1\\OODJAVA\\Inventory.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(Config.getInventoryPath()))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] inventoryData = line.split(",");
@@ -70,7 +71,7 @@ public class ReorderLevel {
     private Map<String, Integer> loadSalesData() {
         Map<String, Integer> salesData = new HashMap<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\jessw\\OneDrive\\Desktop\\Wynns\\APU\\Level 2\\Level 2 Sem 1\\OODJAVA\\Sales.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(Config.getSalesPath()))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] salesInfo = line.split(",");
@@ -96,8 +97,8 @@ public class ReorderLevel {
 
     // Method to write the updated stock data back to the current stock file
     private void writeUpdatedStockData(Map<String, Integer> salesData) {
-        try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\jessw\\OneDrive\\Desktop\\Wynns\\APU\\Level 2\\Level 2 Sem 1\\OODJAVA\\Inventory.txt"));
-             BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\jessw\\OneDrive\\Desktop\\Wynns\\APU\\Level 2\\Level 2 Sem 1\\OODJAVA\\Current_Stock.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(Config.getInventoryPath()));
+             BufferedWriter writer = new BufferedWriter(new FileWriter(Config.getCurrentStockPath()))) {
 
             String line;
             while ((line = reader.readLine()) != null) {

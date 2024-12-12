@@ -20,6 +20,11 @@ public class Config {
     private static final String SUPPLIED_ITEMS_FILE = "SuppliedItems.txt";
     private static final String ADD_STOCK_FILE = "AddStock.txt";
     private static final String PURCHASE_ORDER_FILE = "PurchaseOrder.txt";
+    private static final String PURCHASE_Requisition_FILE = "PurchaseRequisition.txt";
+    private static final String SALES_FILE = "Sales.txt";
+    private static final String SALES_REPORT_FILE = "SalesReport.txt";
+    private static final String CURRENT_STOCK_FILE = "CurrentStock.txt";
+    
     
     // getter
     public static String getUserPath() {
@@ -44,5 +49,21 @@ public class Config {
     
     public static String getPurchaseOrderPath() {
         return DATA_DIR + "/" + PURCHASE_ORDER_FILE;
+    }
+    
+    public static String getPurchaseRequisitionPath() {
+        return DATA_DIR + "/" + PURCHASE_Requisition_FILE;
+    }
+    
+    public static String getSalesPath() {
+        return DATA_DIR + "/" + SALES_FILE;
+    }
+    
+    public static String getSalesReportPath() {
+        return DATA_DIR + "/" + SALES_REPORT_FILE;
+    }
+    
+    public static String getCurrentStockPath() {
+        return DATA_DIR + "/" + CURRENT_STOCK_FILE;
     }
 }

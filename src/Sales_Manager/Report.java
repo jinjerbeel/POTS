@@ -1,5 +1,6 @@
 package Sales_Manager;
 
+import Main.Config;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.io.*;
@@ -21,10 +22,10 @@ public class Report {
 
         try {
             // Read sales data and sales dates from sales.txt
-            List<SaleEntry> salesList = readSalesData("C:\\Users\\jessw\\OneDrive\\Desktop\\Wynns\\APU\\Level 2\\Level 2 Sem 1\\OODJAVA\\sales.txt");
+            List<SaleEntry> salesList = readSalesData(Config.getSalesPath());
 
             // Read inventory data from inventory.txt
-            Map<String, Double> inventoryData = readInventoryData("C:\\Users\\jessw\\OneDrive\\Desktop\\Wynns\\APU\\Level 2\\Level 2 Sem 1\\OODJAVA\\inventory.txt");
+            Map<String, Double> inventoryData = readInventoryData(Config.getInventoryPath());
 
             double grandTotal = 0.0;
 
@@ -103,7 +104,7 @@ public class Report {
 
     // Method to save the sales report to a text file
     private void saveSalesReportToFile(List<SaleEntry> salesList, Map<String, Double> inventoryData, double grandTotal) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\jessw\\OneDrive\\Desktop\\Wynns\\APU\\Level 2\\Level 2 Sem 1\\OODJAVA\\Sales_Report.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(Config.getSalesReportPath()))) {
             writer.write("Sales Report:\n\n");
 
             // Write column headers

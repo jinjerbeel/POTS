@@ -1,5 +1,6 @@
 package Sales_Manager;
 
+import Main.Config;
 
 public class SM_dashboard extends javax.swing.JFrame {
 

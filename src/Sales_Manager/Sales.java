@@ -1,5 +1,6 @@
 package Sales_Manager;
 
+import Main.Config;
 import javax.swing.table.DefaultTableModel;
 import java.io.*;
 import javax.swing.JTable;
@@ -25,7 +26,7 @@ public class Sales {
         DefaultTableModel model = (DefaultTableModel) tblDailySales.getModel();
         model.setRowCount(0); // Clear existing data in the table
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\jessw\\OneDrive\\Desktop\\Wynns\\APU\\Level 2\\Level 2 Sem 1\\OODJAVA\\Sales.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(Config.getSalesPath()))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 // Skip any empty lines
@@ -79,7 +80,7 @@ public class Sales {
             model.addRow(new Object[]{date, itemName, quantity}); // Add new row to the table
 
             // Try to append the new sale to the Sales.txt file
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\jessw\\OneDrive\\Desktop\\Wynns\\APU\\Level 2\\Level 2 Sem 1\\OODJAVA\\Sales.txt", true))) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(Config.getSalesPath(), true))) {
                 System.out.println("Appending sale to file...");
                 writer.write(date + "," + itemName + "," + quantity);
                 writer.newLine(); // Move to the next line
@@ -113,7 +114,7 @@ public class Sales {
         model.setValueAt(quantity, rowIndex, 2); // Update the quantity in the selected row
 
         // Rewrite the entire Sales.txt file with updated data
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\jessw\\OneDrive\\Desktop\\Wynns\\APU\\Level 2\\Level 2 Sem 1\\OODJAVA\\Sales.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(Config.getSalesPath()))) {
             for (int i = 0; i < model.getRowCount(); i++) {
                 String rowData = model.getValueAt(i, 0) + "," + model.getValueAt(i, 1) + "," + model.getValueAt(i, 2);
                 writer.write(rowData);
@@ -135,7 +136,7 @@ public class Sales {
         model.removeRow(rowIndex);
 
         // Rewrite the entire Sales.txt file without the deleted row
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\jessw\\OneDrive\\Desktop\\Wynns\\APU\\Level 2\\Level 2 Sem 1\\OODJAVA\\Sales.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(Config.getSalesPath()))) {
             for (int i = 0; i < model.getRowCount(); i++) {
                 String rowData = model.getValueAt(i, 0) + "," + model.getValueAt(i, 1) + "," + model.getValueAt(i, 2);
                 writer.write(rowData);
@@ -157,7 +158,7 @@ public class Sales {
         double grandTotal = 0.0;
 
         // Prepare a temporary buffer to write the report
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\jessw\\OneDrive\\Desktop\\Wynns\\APU\\Level 2\\Level 2 Sem 1\\OODJAVA\\Sales_Report.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(Config.getSalesReportPath()))) {
             writer.write("Sales Report:\n");
             writer.write("Date        Item        Quantity    Unit Price    Total Price\n");
 

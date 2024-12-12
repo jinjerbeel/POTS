@@ -1,0 +1,11 @@
+I009, Vacuum Cleaner, 45, In Stock
+I011, Water Purifier, 28, Low Stock
+I010, Induction Cooktop, 36, In Stock
+I002, Coffee Maker, 24, Low Stock
+I013, Dehumidifier, 60, In Stock
+I012, Food Processor, 17, Low Stock
+I004, Refrigerator, 15, Low Stock
+I006, Air Fryer, 45, In Stock
+I005, Dishwasher, 45, In Stock
+I008, Blender, 13, Low Stock
+I007, Electric Kettle, 19, Low Stock

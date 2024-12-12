@@ -1,5 +1,6 @@
 package Sales_Manager;
 
+import Main.Config;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -44,7 +45,7 @@ public class Create {
                 reqID, date, supplierId, supplierName, itemCode, itemName, quantity, unitPrice, totalPrice, requestedBy, status);
 
         // Write the new requisition data to the file
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\jessw\\OneDrive\\Desktop\\Wynns\\APU\\Level 2\\Level 2 Sem 1\\OODJAVA\\Purchase_Requisition.txt", true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(Config.getPurchaseRequisitionPath(), true))) {
             writer.write(requisitionData); // Append the new requisition to the file
             System.out.println("Requisition added successfully.");
         } catch (IOException ex) {

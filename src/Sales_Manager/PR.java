@@ -1,5 +1,6 @@
 package Sales_Manager;
 
+import Main.Config;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -11,9 +12,9 @@ import java.util.HashMap;
 public class PR {
 
     // File paths
-    private static final String REQUISITION_FILE = "C:\\Users\\jessw\\OneDrive\\Desktop\\Wynns\\APU\\Level 2\\Level 2 Sem 1\\OODJAVA\\Purchase_Requisition.txt";
-    private static final String INVENTORY_FILE = "C:\\Users\\jessw\\OneDrive\\Desktop\\Wynns\\APU\\Level 2\\Level 2 Sem 1\\OODJAVA\\Inventory.txt";
-    private static final String SUPPLIERS_FILE = "C:\\Users\\jessw\\OneDrive\\Desktop\\Wynns\\APU\\Level 2\\Level 2 Sem 1\\OODJAVA\\Supplier.txt";
+    private static final String REQUISITION_FILE = Config.getPurchaseRequisitionPath();
+    private static final String INVENTORY_FILE = Config.getInventoryPath();
+    private static final String SUPPLIERS_FILE = Config.getSupplierPath();
 
     // HashMaps to store item and supplier data for fast lookup
     private static HashMap<String, String> itemCodes = new HashMap<>();  // Item name -> Item code

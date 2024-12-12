@@ -1,0 +1,14 @@
+Sales Report:
+
+Date, Item, Quantity Sold, Unit Price, Total Price
+2024-11-30, Water Purifier, 3, 149.99, 449.97
+2024-11-30, Food Processor, 3, 59.99, 179.97
+2024-12-01, Dishwasher, 3, 399.99, 1199.97
+2024-12-01, Blender, 1, 29.99, 29.99
+2024-12-02, Coffee Maker, 3, 49.99, 149.97
+2024-12-03, Air Fryer, 3, 79.99, 239.97
+2024-12-03, Dehumidifier, 1, 179.99, 179.99
+2024-12-04, Air Fryer, 20, 79.99, 1599.80
+2024-12-04, Dishwasher, 20, 399.99, 7999.80
+
+Grand Total: 12029.43
