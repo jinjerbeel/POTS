@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.guitest;
+package FinanceManager;
 
+import Main.Config;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -32,7 +33,8 @@ public class ReceiptsPage extends javax.swing.JFrame implements RefreshInter {
             DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
             model.setRowCount(0);
 
-            FileReader fr = new FileReader("PaymentHistory.txt");
+            FileReader fr = new FileReader(Config.getPaymentHistoryPath()
+);
             BufferedReader br = new BufferedReader(fr);
             String read;
 
@@ -59,7 +61,7 @@ public class ReceiptsPage extends javax.swing.JFrame implements RefreshInter {
 //            DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
 //            model.setRowCount(0); // Clear existing rows from the table
 //
-//            FileReader fr = new FileReader("PaymentHistory.txt");
+//            FileReader fr = new FileReader(Config.getPaymentHistoryPath());
 //            BufferedReader br = new BufferedReader(fr);
 //            String read;
 //
@@ -315,7 +317,8 @@ public class ReceiptsPage extends javax.swing.JFrame implements RefreshInter {
 
             boolean found = false; // Initialize a flag to check for matches
 
-            try (BufferedReader br = new BufferedReader(new FileReader("PaymentHistory.txt"))) {
+            try (BufferedReader br = new BufferedReader(new FileReader(Config.getPaymentHistoryPath()
+))) {
                 String read;
 
                 while ((read = br.readLine()) != null) {

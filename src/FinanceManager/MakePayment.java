@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.guitest;
+package FinanceManager;
 
+import Main.Config;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -32,9 +33,7 @@ public class MakePayment extends javax.swing.JFrame  {
             DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
             model.setRowCount(0); // Clear existing rows from the table
 
-            FileReader fr = new FileReader(Config.getPurchaseOrderPath()
-
-());
+            FileReader fr = new FileReader(Config.getPurchaseOrderPath());
             BufferedReader br = new BufferedReader(fr); //Object
             String read;
 
@@ -247,11 +246,10 @@ public class MakePayment extends javax.swing.JFrame  {
             }
 
             // File objects
-            File inf = new File(Config.getPurchaseOrderPath()
-
-());
+            File inf = new File(Config.getPurchaseOrderPath());
             File tempFile = new File("temp.txt"); // Temporary file for PurchaseOrder
-            File paymentFile = new File("PaymentHistory.txt");
+            File paymentFile = new File(Config.getPaymentHistoryPath()
+);
             File addstockFile = new File("AddStock.txt");
 
             // File Readers and Writers
@@ -349,9 +347,7 @@ public class MakePayment extends javax.swing.JFrame  {
 
             boolean found = false; // Initialize a flag to check for matches
 
-            try (BufferedReader br = new BufferedReader(new FileReader(Config.getPurchaseOrderPath()
-
-()))) {
+            try (BufferedReader br = new BufferedReader(new FileReader(Config.getPurchaseOrderPath()))) {
                 String read;
 
                 while ((read = br.readLine()) != null) {

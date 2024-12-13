@@ -1,4 +1,4 @@
-package com.mycompany.guitest;
+package FinanceManager;
 
 import javax.swing.SwingUtilities;
 

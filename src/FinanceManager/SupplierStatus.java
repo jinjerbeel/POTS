@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.guitest;
+package FinanceManager;
 
+import Main.Config;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -33,7 +34,8 @@ public class SupplierStatus extends javax.swing.JFrame {
 
             // Read Suppliers.txt and store the supplier info in a map
             HashMap<String, String> supplierMap = new HashMap<>();
-            FileReader frSuppliers = new FileReader("Suppliers.txt");
+            FileReader frSuppliers = new FileReader(Config.getSupplierPath()
+);
             BufferedReader brSuppliers = new BufferedReader(frSuppliers);
             String supplierLine;
 
@@ -54,7 +56,8 @@ public class SupplierStatus extends javax.swing.JFrame {
             frSuppliers.close();
 
             // Now read PaymentHistory.txt and match with suppliers
-            FileReader frPaymentHistory = new FileReader("PaymentHistory.txt");
+            FileReader frPaymentHistory = new FileReader(Config.getPaymentHistoryPath()
+);
             BufferedReader brPaymentHistory = new BufferedReader(frPaymentHistory);
             String PaymentLine;
 
@@ -603,7 +606,8 @@ public class SupplierStatus extends javax.swing.JFrame {
 
             // Read Suppliers.txt and store supplier info in a HashMap
             HashMap<String, String> supplierMap = new HashMap<>();
-            try (BufferedReader brSuppliers = new BufferedReader(new FileReader("Suppliers.txt"))) {
+            try (BufferedReader brSuppliers = new BufferedReader(new FileReader(Config.getSupplierPath()
+))) {
                 String supplierLine;
 
                 while ((supplierLine = brSuppliers.readLine()) != null) {
@@ -620,7 +624,8 @@ public class SupplierStatus extends javax.swing.JFrame {
             }
 
             // Read PaymentHistory.txt and match records with suppliers
-            try (BufferedReader brPaymentHistory = new BufferedReader(new FileReader("PaymentHistory.txt"))) {
+            try (BufferedReader brPaymentHistory = new BufferedReader(new FileReader(Config.getPaymentHistoryPath()
+))) {
                 String paymentLine;
 
                 while ((paymentLine = brPaymentHistory.readLine()) != null) {
