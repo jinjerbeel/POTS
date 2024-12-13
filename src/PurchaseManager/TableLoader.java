@@ -18,7 +18,7 @@ public class TableLoader {
     private static final String ITEMS_FILE_PATH = Config.getInventoryPath();
     private static final String SUPPLIER_FILE_PATH = Config.getSupplierPath();
     private static final String PR_FILE_PATH = Config.getPurchaseRequisitionPath();
-    private static final String PO_FILE_PATH = "src/TextFile/PurchaseOrder.txt";
+    private static final String PO_FILE_PATH = Config.getPurchaseOrderPath();
 
     // JTable instancea
     private JTable table; 

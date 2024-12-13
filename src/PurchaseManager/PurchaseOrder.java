@@ -4,6 +4,7 @@
  */
 package PurchaseManager;
 
+import Main.Config;
 import PurchaseManager.BasePurchaseOrder;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -19,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class PurchaseOrder extends BasePurchaseOrder {
     
-    private static final String PO_FILE_PATH = "src/TextFile/PurchaseOrder.txt";
+    private static final String PO_FILE_PATH = Config.getPurchaseOrderPath();
 
     @Override
     public void loadData(String PO_ID) {

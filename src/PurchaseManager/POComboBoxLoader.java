@@ -19,7 +19,7 @@ import javax.swing.JTextField;
 
 
 public class POComboBoxLoader {
-    private static final String PO_FILE_PATH = "src/TextFile/PurchaseOrder.txt";
+    private static final String PO_FILE_PATH = Config.getPurchaseOrderPath();
     private static final String INVENTORY_FILE_PATH = Config.getInventoryPath();
     private static final String SUPPLIER_FILE_PATH = Config.getSupplierPath();
 

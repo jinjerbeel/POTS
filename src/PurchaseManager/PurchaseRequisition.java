@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class PurchaseRequisition extends BaseRequisition {
     private static final String PR_FILE_PATH = Config.getPurchaseRequisitionPath();
-    private static final String PO_FILE_PATH = "src/TextFile/PurchaseOrder.txt";
+    private static final String PO_FILE_PATH = Config.getPurchaseOrderPath();
 
     @Override
     public void loadData(String REQ_ID) {
