@@ -4,7 +4,7 @@
  */
 package PurchaseManager;
 
-impor Main.Config;
+import Main.Config;
 import PurchaseManager.PurchaseRequisitionFrame;
 import PurchaseManager.ItemFrame;
 import PurchaseManager.SupplierFrame;

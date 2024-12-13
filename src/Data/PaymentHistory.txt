@@ -1,7 +1,1 @@
-Coffee Maker,6
-Vacuum Cleaner,5
-Induction Cooktop,4
-Water Purifier,2
-Food Processor,1
-Electric Kettle,6
-Blender,5
+PO001, REQ001, 2024-11-26, S001, Hamilton Beach, I002, Coffee Maker, 25, 49.99, 1249.75, PM001, Approved, Pending

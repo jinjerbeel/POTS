@@ -62,7 +62,6 @@ public class FilterPR_jDialog extends javax.swing.JDialog {
         cbxComparisonOperator = new javax.swing.JComboBox<>();
         lblRequisitionID = new javax.swing.JLabel();
         txtRequisitionID = new javax.swing.JTextField();
-        dpcDatePicker = new com.github.lgooddatepicker.components.DatePicker();
         lblDate = new javax.swing.JLabel();
         chkViewAllRequistionID = new javax.swing.JCheckBox();
         lblUnitPrice = new javax.swing.JLabel();
@@ -325,8 +324,7 @@ public class FilterPR_jDialog extends javax.swing.JDialog {
                                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(jPanel6Layout.createSequentialGroup()
                                             .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(dpcDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(48, 48, 48))
                                         .addGroup(jPanel6Layout.createSequentialGroup()
                                             .addComponent(lblUnitPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -347,13 +345,14 @@ public class FilterPR_jDialog extends javax.swing.JDialog {
                 .addComponent(jLabel12)
                 .addGap(33, 33, 33)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addComponent(lblDate)
-                        .addComponent(dpcDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblRequisitionID)
-                        .addComponent(txtRequisitionID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(8, 8, 8))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblRequisitionID)
+                            .addComponent(txtRequisitionID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(chkViewAllRequistionID)
                 .addGap(30, 30, 30)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -639,7 +638,6 @@ public class FilterPR_jDialog extends javax.swing.JDialog {
     private javax.swing.JCheckBox chkViewAllRequistionID;
     private javax.swing.JCheckBox chkViewAllTotalPrice;
     private javax.swing.JCheckBox chkViewAllUnitPrice;
-    private com.github.lgooddatepicker.components.DatePicker dpcDatePicker;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel lblDate;

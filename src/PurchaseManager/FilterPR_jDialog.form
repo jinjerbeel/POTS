@@ -132,8 +132,7 @@
                                       <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                           <Group type="102" alignment="1" attributes="0">
                                               <Component id="lblDate" min="-2" pref="37" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="dpcDatePicker" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
                                               <Component id="lblUnitPrice" min="-2" pref="70" max="-2" attributes="0"/>
@@ -166,16 +165,18 @@
                   <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                          <Component id="lblDate" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="dpcDatePicker" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="lblDate" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblRequisitionID" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtRequisitionID" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblRequisitionID" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtRequisitionID" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="chkViewAllRequistionID" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -254,26 +255,26 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="lblItemCode">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Item Code:"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Item Code:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblItemName">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Item Name:"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Item Name:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblQuantity">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Quantity:"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Quantity:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtItemCode">
@@ -320,10 +321,10 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblRequisitionID">
           <Properties>
-            <Property name="text" type="java.lang.String" value="REQUISITION ID: "/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="REQUISITION ID: "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtRequisitionID">
@@ -336,14 +337,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRequisitionIDActionPerformed"/>
           </Events>
         </Component>
-        <Component class="com.github.lgooddatepicker.components.DatePicker" name="dpcDatePicker">
-        </Component>
         <Component class="javax.swing.JLabel" name="lblDate">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Date:"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Date:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="chkViewAllRequistionID">
@@ -356,18 +355,18 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblUnitPrice">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Unit Price:"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Unit Price:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblMinUnitPrice">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Min:"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Historic" size="12" style="0"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Min:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtMinUnitPrice">
@@ -386,10 +385,10 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblMaxUnitPrice">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Max:"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Historic" size="12" style="0"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Max:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtMaxUnitPrice">
@@ -416,18 +415,18 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblTotalPrice">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Total Price:"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Total Price:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblMinTotalPrice">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Min:"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Historic" size="12" style="0"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Min:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtMinTotalPrice">
@@ -446,10 +445,10 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblMaxTotalPrice">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Max:"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Historic" size="12" style="0"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Max:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtMaxTotalPrice">
@@ -468,10 +467,10 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblRequestedBy">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Requested By: "/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Requested By: "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtRequestedBy">
@@ -489,10 +488,10 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel12">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Enter Purchase Requisition Details"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="1"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Enter Purchase Requisition Details"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="cbxItemName">
@@ -515,10 +514,10 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblSupplierID">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Supplier ID:"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Supplier ID:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtSupplierID">
@@ -551,10 +550,10 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblSupplierName">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Supplier Name: "/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Supplier Name: "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="chkViewAllUnitPrice">
