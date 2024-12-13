@@ -250,7 +250,7 @@ public class MakePayment extends javax.swing.JFrame  {
             File tempFile = new File("temp.txt"); // Temporary file for PurchaseOrder
             File paymentFile = new File(Config.getPaymentHistoryPath()
 );
-            File addstockFile = new File("AddStock.txt");
+            File addstockFile = new File(Config.getAddStockPath());
 
             // File Readers and Writers
             FileReader fr = new FileReader(inf);

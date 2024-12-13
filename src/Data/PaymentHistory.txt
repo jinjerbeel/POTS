@@ -1,0 +1,7 @@
+Coffee Maker,6
+Vacuum Cleaner,5
+Induction Cooktop,4
+Water Purifier,2
+Food Processor,1
+Electric Kettle,6
+Blender,5
