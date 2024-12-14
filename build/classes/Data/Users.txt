@@ -1,3 +1,5 @@
 # User Data - Do not edit manually
 # Format: username|passwordHash|salt|email|fullName|isActive|lastLogin|roles
-AM001|nJyu4S/nQuR3H/qOV+33Lw==|OIeIfr9pM3LJRfPPm5sb2g==|admin@company.com|Ahmed Jinan|true|2024-12-14T19:49:58.210654300|ADMIN
+AM001|nJyu4S/nQuR3H/qOV+33Lw==|OIeIfr9pM3LJRfPPm5sb2g==|admin@company.com|Ahmed Jinan|true|null|ADMIN
+SM001|nJyu4S/nQuR3H/qOV+33Lw==|OIeIfr9pM3LJRfPPm5sb2g==|admin@company.com|Lee |true|null|SALES_MANAGER
+IM001|nJyu4S/nQuR3H/qOV+33Lw==|OIeIfr9pM3LJRfPPm5sb2g==|admin@company.com|Jackson |true|2024-12-15T07:40:54.614482900|INVENTORY_MANAGER

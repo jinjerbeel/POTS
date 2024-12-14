@@ -4,7 +4,10 @@
  */
 package Administrator;
 
-
+import SalesManager.SM_dashboard;
+import PurchaseManager.ItemFrame;
+import InventoryManager.ItemsFrame;
+import FinanceManager.FinanceMenu;
 import javax.swing.JPasswordField;
 import javax.swing.JOptionPane;
 import java.util.Base64;
@@ -36,6 +39,7 @@ public class LoginForm extends javax.swing.JFrame {
         SignInBtn = new javax.swing.JButton();
         userNameTxt = new javax.swing.JTextField();
         passwordField = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,24 +63,33 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Welcome!");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(192, 192, 192)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(userNameTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(SignInBtn))
-                    .addComponent(passwordField))
+                        .addGap(192, 192, 192)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(userNameTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addComponent(SignInBtn))
+                            .addComponent(passwordField)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(215, 215, 215)
+                        .addComponent(jLabel1)))
                 .addContainerGap(202, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(110, Short.MAX_VALUE)
+                .addContainerGap(76, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
                 .addComponent(userNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -117,18 +130,35 @@ public class LoginForm extends javax.swing.JFrame {
                         "Login Successful",
                         JOptionPane.INFORMATION_MESSAGE);
                     
-                    // TODO: Open appropriate form based on user role
                     if (user.getRoles().contains(Role.ADMIN)) {
-                        // Open admin form
-                        // AdminForm adminForm = new AdminForm(user);
-                        // adminForm.setVisible(true);
-                    } else if (user.getRoles().contains(Role.PURCHASE_MANAGER)) {
-                        // Open purchase manager form
-                        // PurchaseManagerForm pmForm = new PurchaseManagerForm(user);
-                        // pmForm.setVisible(true);
+                        
                     }
-                    // Add other role checks as needed
-                    
+                    else if (user.getRoles().contains(Role.SALES_MANAGER)) {
+                        UserSession.getInstance().startSession(user);
+                        new SalesManager.SM_dashboard().setVisible(true);
+                        this.dispose();
+                    }
+                    else if (user.getRoles().contains(Role.PURCHASE_MANAGER)) {
+                        UserSession.getInstance().startSession(user);
+                        new PurchaseManager.ItemFrame().setVisible(true);
+                        this.dispose();
+                    }
+                    else if (user.getRoles().contains(Role.INVENTORY_MANAGER)) {
+                        UserSession.getInstance().startSession(user);
+                        new InventoryManager.ItemsFrame().setVisible(true);
+                        this.dispose();
+                    }
+                    else if (user.getRoles().contains(Role.FINANCE_MANAGER)) {
+                        UserSession.getInstance().startSession(user);
+                        new FinanceManager.FinanceMenu().setVisible(true);
+                        this.dispose();
+                    }
+        else {
+            JOptionPane.showMessageDialog(this,
+                "No dashboard available for assigned role",
+                "Access Error",
+                JOptionPane.ERROR_MESSAGE);
+        }
                     // Close login form
                     this.dispose();
                     
@@ -199,6 +229,7 @@ public class LoginForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton SignInBtn;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JTextField userNameTxt;
     // End of variables declaration//GEN-END:variables

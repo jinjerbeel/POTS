@@ -5,6 +5,8 @@
 package InventoryManager;
 
 import Main.Config;
+import Administrator.UserSession;
+import Administrator.LoginForm;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -1195,7 +1197,9 @@ public class ItemsFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_txtItemCodeActionPerformed
 
     private void btnSignOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignOutActionPerformed
-        // TODO add your handling code here:
+        UserSession.getInstance().endSession();
+        new LoginForm().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnSignOutActionPerformed
 
     private void btnDeleteItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteItemActionPerformed

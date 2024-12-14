@@ -25,6 +25,7 @@ public class Config {
     private static final String SALES_REPORT_FILE = "SalesReport.txt";
     private static final String CURRENT_STOCK_FILE = "CurrentStock.txt";
     private static final String PAYMENT_HISTORY_FILE = "PaymentHistory.txt";
+    private static final String SESSION_FILE = "Session.txt";
     
     
     // getter
@@ -70,5 +71,9 @@ public class Config {
     
     public static String getPaymentHistoryPath() {
         return DATA_DIR + "/" + PAYMENT_HISTORY_FILE;
+    }
+    
+    public static String getSessionPath() {
+        return DATA_DIR + "/" + SESSION_FILE;
     }
 }
