@@ -4,17 +4,24 @@
  */
 package Administrator;
 
-/**
- *
- * @author Jinan
- */
+
+import javax.swing.JPasswordField;
+import javax.swing.JOptionPane;
+import java.util.Base64;
+
+
 public class LoginForm extends javax.swing.JFrame {
 
-    /**
-     * Creates new form LoginForm
-     */
+    private final UserService userService;
+    
     public LoginForm() {
         initComponents();
+        userService = new UserService();
+        // Clear default password text
+        passwordField.setText("");
+        // Center the form on screen
+        setLocationRelativeTo(null);
+    
     }
 
     /**
@@ -26,16 +33,16 @@ public class LoginForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        SignInBtn = new javax.swing.JButton();
         userNameTxt = new javax.swing.JTextField();
-        passwdTxt = new javax.swing.JTextField();
+        passwordField = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Sign In");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        SignInBtn.setText("Sign In");
+        SignInBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                SignInBtnActionPerformed(evt);
             }
         });
 
@@ -45,9 +52,10 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
 
-        passwdTxt.addActionListener(new java.awt.event.ActionListener() {
+        passwordField.setText("jPasswordField1");
+        passwordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwdTxtActionPerformed(evt);
+                passwordFieldActionPerformed(evt);
             }
         });
 
@@ -55,40 +63,104 @@ public class LoginForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(316, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(192, 192, 192)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1)
-                    .addComponent(userNameTxt)
-                    .addComponent(passwdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(288, 288, 288))
+                    .addComponent(userNameTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(SignInBtn))
+                    .addComponent(passwordField))
+                .addContainerGap(202, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(78, 78, 78)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(110, Short.MAX_VALUE)
                 .addComponent(userNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(passwdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(jButton1)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(SignInBtn)
+                .addGap(100, 100, 100))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void SignInBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignInBtnActionPerformed
+        String username = userNameTxt.getText().trim();
+        String password = new String(passwordField.getPassword());
+        
+        
+        try {
+            // Validate input fields
+            if (username.isEmpty() || password.isEmpty()) {
+                JOptionPane.showMessageDialog(this,
+                    "Username and password cannot be empty",
+                    "Login Error",
+                    JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            // Verify credentials using UserService
+            if (userService.verifyPassword(username, password)) {
+                User user = userService.findUserByUsername(username);
+                if (user != null) {
+                    // Update last login time
+                    user.updateLastLogin();
+                    userService.saveUsers();
+                    
+                    // Show success message
+                    JOptionPane.showMessageDialog(this,
+                        "Welcome " + user.getFullName(),
+                        "Login Successful",
+                        JOptionPane.INFORMATION_MESSAGE);
+                    
+                    // TODO: Open appropriate form based on user role
+                    if (user.getRoles().contains(Role.ADMIN)) {
+                        // Open admin form
+                        // AdminForm adminForm = new AdminForm(user);
+                        // adminForm.setVisible(true);
+                    } else if (user.getRoles().contains(Role.PURCHASE_MANAGER)) {
+                        // Open purchase manager form
+                        // PurchaseManagerForm pmForm = new PurchaseManagerForm(user);
+                        // pmForm.setVisible(true);
+                    }
+                    // Add other role checks as needed
+                    
+                    // Close login form
+                    this.dispose();
+                    
+                } else {
+                    throw new RuntimeException("User not found after verification");
+                }
+            } else {
+                JOptionPane.showMessageDialog(this,
+                    "Invalid username or password",
+                    "Login Error",
+                    JOptionPane.ERROR_MESSAGE);
+                passwordField.setText(""); // Clear password field
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this,
+                "An error occurred during login: " + e.getMessage(),
+                "System Error",
+                JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_SignInBtnActionPerformed
 
     private void userNameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameTxtActionPerformed
         // TODO add your handling code here:
+        passwordField.requestFocusInWindow();
     }//GEN-LAST:event_userNameTxtActionPerformed
 
-    private void passwdTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwdTxtActionPerformed
+    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_passwdTxtActionPerformed
+        SignInBtn.doClick();
+    }//GEN-LAST:event_passwordFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,8 +198,8 @@ public class LoginForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JTextField passwdTxt;
+    private javax.swing.JButton SignInBtn;
+    private javax.swing.JPasswordField passwordField;
     private javax.swing.JTextField userNameTxt;
     // End of variables declaration//GEN-END:variables
 }

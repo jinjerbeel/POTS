@@ -1,0 +1,5 @@
+Sales Report:
+
+Date, Item, Quantity Sold, Unit Price, Total Price
+
+Grand Total: 0.00

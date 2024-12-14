@@ -1,0 +1,6 @@
+S001,Hershey,New York,I004;I008;I013;I002
+S002,Unilever,London,I013;I007
+S003,PepsiCo,Chicago,I006;I012
+S004,Arla Foods,Denmark,
+S005,The Coca-Cola Company,Home,I005;I009
+S006,Red Bull GmbH,Austria,I008;I012;I010;I002

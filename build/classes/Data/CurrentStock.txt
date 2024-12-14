@@ -1,0 +1,11 @@
+I002,Nestum,30,In Stock,0
+I004,Horlicks,15,Low Stock,15
+I005,Lipton Tea,45,In Stock,0
+I006,Great Tea,45,In Stock,0
+I007,Tropicana,25,Low Stock,5
+I008,Red Bull,18,Low Stock,12
+I009,Pepsi,50,In Stock,0
+I010,Sprite,40,In Stock,0
+I011,Kellogg’s,30,In Stock,0
+I012,Monster,18,Low Stock,12
+I013,Coca-Cola,60,In Stock,0

@@ -1,0 +1,3 @@
+# User Data - Do not edit manually
+# Format: username|passwordHash|salt|email|fullName|isActive|lastLogin|roles
+AM001|nJyu4S/nQuR3H/qOV+33Lw==|OIeIfr9pM3LJRfPPm5sb2g==|admin@company.com|Ahmed Jinan|true|2024-12-14T19:49:58.210654300|ADMIN
